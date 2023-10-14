@@ -28,6 +28,11 @@
 	color: black;
 }
 
+.login-box input {
+/*	or: .login-box .form-control*/
+	font-size: 20px;
+}
+
 .btn-success {
 	font-family: 'Nanum Myeongjo', serif;
 	padding: 5px 50px 5px 50px;
