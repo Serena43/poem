@@ -1,0 +1,116 @@
+<!-- HTML is a programming language for making a website -->
+<!Doctype HTML> <!-- letting comp know it's HTML file -->
+
+<!-- Opening Tag -->
+<html>
+
+  <head>
+    <title>Sample Website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Young+Serif&display=swap" rel="stylesheet">
+    <!-- replace every time you add a font to list -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- every link under head -->
+  </head>
+  <!-- h tag = heading tag (bold) -->
+
+  <!-- Main Content in body tag -->
+  <body>
+    <div class="container">
+      <!-- div stands for division -->
+      <!-- makes page responsive -->
+      <div class="row">
+        <h1>Title1</h1>
+        <div class="col-md-4 first-section">
+          <h1 class="mt-5"> Subtitle1</h1>
+          <!-- mt = margin top, 5 = amt -->
+          <!-- mb = margin bottom -->
+          <!-- ms = margin left, me = margin right -->
+          <p>About subtitle1</p>
+        </div>
+        <div class="col-md-4 second-section">
+          <h1>Subtitle2</h1>
+          <p>About subtitle2</p>
+        </div>
+        <div class="col-md-4 third-section">
+          <h1 id="test" onclick="hide()">Subtitle3</h1>
+          <!-- class: can be used multiple times -->
+          <!-- id: can only be used once (unique) -->
+          <h1 id="test2" class="s4">Subtitle4</h1>
+          <p>About subtitle3</p>
+        </div>
+      </div>
+
+      <script>
+        // javascript (can be used both frontend and backend)
+        function hide() {
+          var x = document.getElementById("test");
+          x.style.display = "none";
+          var y = document.getElementById("test2");
+          y.style.display = "block";
+        }
+      </script>
+
+    <!-- sum should be <= 12 -->
+    <!-- md => Medium -->
+    <!-- cmnd + opt + j => more info on Chrome -->
+
+    <h1 class="color-red">Heading</h1>
+    <h2>Heading2</h2>
+    <h3>Heading3</h3>
+    <h4>Heading4</h4>
+    <h5>Heading5</h5>
+    <h6>Heading6</h6>
+
+    <h1>Second Heading Second Heading Second Heading Second Heading Second Heading</h1>
+    <!-- diff is size: h1 - h6 -->
+
+    <!-- p tag  = paragraph tag (plain text) -->
+    <p class="color-red bigfont">Hello, this is Scott</p>
+    <!-- can have multiple classes, just need space -->
+
+    <!-- Hyperlink -->
+    <a href="https://www.naver.com/">Click me!</a>
+
+    <!-- ul stands for unordered list -->
+    <ul>
+      <li>macOS</li> <!-- li stands for list item -->
+      <li>Windows</li>
+      <li>Linux</li>
+    </ul>
+
+    <!-- ol stands for ordered list -->
+    <ol>
+      <li>macOS</li>
+      <li>Windows</li>
+      <li>Linux</li>
+    </ol>
+
+    <img class="myimg" src="sampleimg.png">
+
+    <a class="mybtn" href="https://www.naver.com/">Click me!</a>
+    <button type="button" class="btn btn-danger">Danger</button>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- every script goes b4 closing tag of body -->
+  </body>
+
+<!-- Closing Tag -->
+</html>
+
+<!-- HTML (basic structure), CSS (deco/design) => frontend
+  many diff languages (eg Python, Java), firebase => backend
+  firebase: base of Javascript -->
+
+<!-- summary: class, html, css, bootstrap -->
+
+<!-- above is front end -->
+<!-- front end: html, css, javascript + bootstrap -->
+<!-- back end: javascript -->
