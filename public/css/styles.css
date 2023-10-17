@@ -11,20 +11,21 @@
 /*	a - opacity*/
 }
 
-.login-box h1 {
-	font-family: 'Nanum Myeongjo', serif;
+.login-box h1{
+	font-family: 'Nanum Myeongjo ExtraBold 800', serif;
 	font-size: 30px;
 }
 
-.login-box p {
+body p {
+	color: black;
+	font-family: 'Nanum Myeongjo', serif;
+}
+
+body a {
 	color: gray;
 }
 
-.login-box a {
-	color: gray;
-}
-
-.login-box a:hover {
+body a:hover {
 	color: black;
 }
 
@@ -34,7 +35,7 @@
 }
 
 .btn-success {
-	font-family: 'Nanum Myeongjo', serif;
+	font-family: 'Nanum Myeongjo Bold 700', serif;
 	padding: 5px 50px 5px 50px;
 	background-color: white;
 	color: black;
@@ -44,4 +45,16 @@
 /*x space*/
 .btn-success:hover {
 	background-color: #A2AFF6;
+	border: 1px solid gray;
+}
+
+.form-check-label {
+	font-family: 'Nanum Myeongjo', serif;
+	font-size: 15px;
+	color: gray;
+}
+
+.form-group {
+	font-family: 'Nanum Myeongjo', serif;
+	font-size: 5px;
 }
