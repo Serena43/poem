@@ -49,7 +49,7 @@ def check_password(username, password):
 	real_password = cursor.fetchone()[0] #[0] bc returns list
 	conn.close()
 
-	if cursor-fetchone() is None:
+	if cursor.fetchone() is None:
 		return False
 	else:
 		real_password = real_password[0]
