@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, flash, redirect # flask: like library, python programme, connects frontend & backend
 import sqlite3 #library that connects python & database
+import bcrypt
 
 app = Flask(__name__)
 app.secret_key = "randommessage"
@@ -26,6 +27,11 @@ def signup():
 		first_name = request.form.get("firstname")
 		last_name = request.form.get("lastname")
 		email = request.form.get("email")
+
+		password = "password".encode('utf-8')
+		salt = bcrypt.gensalt()
+		hashed_password = bcrypt.hashpw(password, salt)
+
 		if username_exists(username):
 			flash("Username already exists.") #sending to frontend
 		else: #if there is no username which user is trying to register w/
@@ -33,7 +39,7 @@ def signup():
 			conn = sqlite3.connect("static/database.db")
 			cursor = conn.cursor() #명령 to database, needed to execute; conn: db, cursor: 명령
 			#				Insert data into table Users (column names); (?) -> python variables
-			cursor.execute("Insert INTO USERS (username, password, first_name, last_name, email) VALUES (?,?,?,?,?)",(username,password,first_name,last_name,email)) #USERS: table name
+			cursor.execute("Insert INTO USERS (username, password, first_name, last_name, email) VALUES (?,?,?,?,?)",(username,hashed_password,first_name,last_name,email)) #USERS: table name
 			conn.commit() #write changes; saving
 			conn.close() #disconnecting with the database bc x need db anymore
 			return render_template('signup.html') # returning to homepage (login page)
@@ -46,10 +52,10 @@ def check_password(username, password):
 	conn = sqlite3.connect('static/database.db')
 	cursor = conn.cursor()
 	cursor.execute("Select password from Users where username=?",(username,))
-	real_password = cursor.fetchone()[0] #[0] bc returns list
+	real_password = cursor.fetchone() #[0] bc returns list
 	conn.close()
 
-	if cursor.fetchone() is None:
+	if real_password is None:
 		return False
 	else:
 		real_password = real_password[0]
@@ -64,6 +70,20 @@ def login():
 	if request.method == "POST":
 		username = request.form.get("username")
 		password = request.form.get("password")
+
+		input_password = "password_attempt".encode('utf-8')
+
+		conn = sqlite3.connect('static/database.db')
+		cursor = conn.cursor()
+		cursor.execute("Select password from Users where username=?", (username,))
+		hashed_password = cursor.fetchone()
+		conn.close()
+
+		if bcrypt.checkpw(input_password, hashed_password):
+			print("Password is correct!")
+		else:
+			print("Password is incorrect!")
+
 		if check_password(username, password):
 			return redirect(url_for('index')) #index = homepage
 		else:
