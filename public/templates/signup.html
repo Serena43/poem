@@ -16,6 +16,13 @@
 		<div class="container">
 			<div class="signup-box mx-auto mt-5">
 				<h1 class="text-center"> Sign up </h1>
+				{% with messages = get_flashed_messages() %}
+					{% if messages%} <!--if have message-->
+						<div class="alert alert-danger" role="alert">
+							Username already exists.
+						</div>
+					{% endif %}
+				{% endwith %}
 				<form action="/signup" method="POST"> <!--form -> submit -> go to signup -> method is POST-->
 					<div class="row">
 						<div class="form-group mt-3 col-md-6">
@@ -32,10 +39,10 @@
 						<input class="form-control" placeholder="Email" name="email">
 					</div>
 					<div class="form-group mt-3">
-						<input class="form-control" placeholder="Password" name="password">
+						<input type="password" class="form-control" placeholder="Password" name="password">
 					</div>
 					<div class="form-group mt-3">
-						<input class="form-control" placeholder="Confirm Password" name="repassword">
+						<input type="password" class="form-control" placeholder="Confirm Password" name="repassword">
 					</div>
 					<div class="form-check">
   						<input class="form-check-input mt-3" type="checkbox" value="" id="flexCheckDefault">
@@ -50,7 +57,7 @@
 			</div>
 		</div>
 
-		<p class="mt-2 text-center mt-3"> Already have an account? <a href="file:///Users/admin/Documents/GitHub/poem/public/login.html?"> Log in here </a> </p>
+		<p class="mt-2 text-center mt-3"> Already have an account? <a href="{{url_for('login')}}"> Log in here </a> </p>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"> </script>
 	</body>

@@ -22,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 /*--------------------------------------------------------------
@@ -158,7 +158,7 @@ h6 {
   height: 2px;
   bottom: 3px;
   left: 0;
-  background-color: #1bac91;
+  background-color: #A2AFF6;
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -212,7 +212,7 @@ h6 {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #1bac91;
+  color: #A2AFF6;
 }
 
 .navbar .dropdown:hover>ul {
@@ -316,7 +316,7 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #1bac91;
+  color: #A2AFF6;
 }
 
 .navbar-mobile .getstarted,
@@ -351,7 +351,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #1bac91;
+  color: #A2AFF6;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -364,7 +364,7 @@ h6 {
 #hero {
   width: 100%;
   height: calc(100vh - 70px);
-  background: url("../img/hero-bg.jpg") center center;
+  background: url("../img/sky.jpg") center center;
   background-size: cover;
   position: relative;
   margin-top: 70px;
@@ -396,6 +396,7 @@ h6 {
 #hero h2 {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 35px;
+  margin-top: 15px;
   font-size: 24px;
 }
 
@@ -414,8 +415,8 @@ h6 {
 }
 
 #hero .btn-get-started:hover {
-  border-color: #1bac91;
-  background: #1bac91;
+  border-color: #A2AFF6;
+  background: #A2AFF6;
 }
 
 @media (min-width: 1024px) {
@@ -859,3 +860,7 @@ body a:hover {
   font-family: 'Nanum Myeongjo', serif;
   font-size: 5px;
 }
+
+/*.abtimg {
+  width: 50%;
+}*/
