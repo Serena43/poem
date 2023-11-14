@@ -35,9 +35,9 @@ def cnt_sent_syll(sentence):
     return total_syll
 
 def haiku_is_standard(poem):
-    first_ln_syll = cnt_sent_syll(poem[0][0])
-    second_ln_syll = cnt_sent_syll(poem[1][0])
-    third_ln_syll = cnt_sent_syll(poem[2][0])
+    first_ln_syll = cnt_sent_syll(poem[0])
+    second_ln_syll = cnt_sent_syll(poem[1])
+    third_ln_syll = cnt_sent_syll(poem[2])
     if first_ln_syll != 5:
         return False
     elif second_ln_syll != 7:
@@ -46,13 +46,13 @@ def haiku_is_standard(poem):
         return False
     return True
 
-eg1 = [["An old silent pond"], ["A frog jumps into the pond—"], ["Splash! Silence again."]]
-print(haiku_is_standard(eg1))
+# eg1 = ["An old silent pond", "A frog jumps into the pond—", "Splash! Silence again."]
+# print(haiku_is_standard(eg1))
 
-print(cnt_word_syll("Elephant")) #python, java -> both can print returned val
+# print(cnt_word_syll("Elephant")) #python, java -> both can print returned val
 
-sentence = "Hello, my name is Serena!"
-print(cnt_sent_syll(sentence))
+# sentence = "Hello, my name is Serena!"
+# print(cnt_sent_syll(sentence))
 
 def words_rhyme(word1, word2):
     pronounce_dict = cmudict.dict()
