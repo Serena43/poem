@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect, ses
 import sqlite3 #library that connects python & database
 import bcrypt
 from datetime import timedelta, datetime
-from helper import haiku_is_standard
+from helper import haiku_is_standard, is_acrostic
 
 app = Flask(__name__)
 app.secret_key = "randommessage"
@@ -109,8 +109,8 @@ def logout():
 	session.clear()
 	return redirect(url_for('login')) # sends user to /login
 
-@app.route('/poem_writing', methods=['GET','POST'])
-def poem_writing():
+@app.route('/poem_writing_haiku', methods=['GET','POST'])
+def poem_writing_haiku():
 	if request.method == "POST":
 		lines = request.form.getlist("line") #everything named line is brought in list format
 		#["line1", "line2", :line3]
@@ -129,10 +129,40 @@ def poem_writing():
 			return render_template(url_for('index'))
 		else:
 			flash("Not quite!")
-			return render_template('poem_writing.html')
+			return render_template('poem_writing_haiku.html')
 
 	else: #get
-		return render_template('poem_writing.html')
+		return render_template('poem_writing_haiku.html')
+
+@app.route('/poem_writing_sonnet', methods=['GET','POST'])
+def poem_writing_sonnet():
+	return render_template("poem_writing_sonnet.html")
+
+@app.route('/poem_writing_acrostic', methods=['GET','POST'])
+def poem_writing_acrostic():
+	if request.method == "POST":
+		lines = request.form.getlist("line")
+		theme = request.form.get("theme")
+		result = is_acrostic(theme, lines)
+
+		if result:
+			username = session["username"]
+			content = "\n".join(lines) #turning list -> 1 string: "line1\nline2\nline3\n"
+			today_date = datetime.today()
+
+			conn = sqlite3.connect("static/database.db")
+			cursor = conn.cursor()
+			cursor.execute("Insert INTO Poem (username, content, date) VALUES (?,?,?)",(username,content,today_date))
+			conn.commit() #saving DB
+			conn.close()
+
+			return render_template(url_for('index'))
+		else:
+			flash("Not quite!")
+			return render_template('poem_writing_acrostic.html')
+
+	else: #get
+		return render_template('poem_writing_acrostic.html')
 
 # Main function (Python syntax)
 if __name__ == '__main__':

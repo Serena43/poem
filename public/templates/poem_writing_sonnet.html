@@ -26,21 +26,12 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Types of Poem</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="{{url_for('poem_writing_acrostic')}}">Acrostic</a></li>
+              <li><a href="#">Free Verse</a></li>
+              <li><a href="{{url_for('poem_writing_haiku')}}">Haiku</a></li>
+              <li><a href="#">Sonnet</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -58,7 +49,7 @@
   </header>
 
     <div class="container poemwrite">
-        <h1 class="mb-4 bigmargin text-center">Poem Writer</h1>
+        <h1 class="mb-4 bigmargin text-center sonnet_heading">Sonnet</h1>
         <div> <!-- x physically shown-->
             <form action="/poem_writing" method = "POST">
                 <div class="wordbox-container">
