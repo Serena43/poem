@@ -815,13 +815,13 @@ section {
 }
 
 .login-box h1{
-  font-family: 'Nanum Myeongjo ExtraBold 800', serif;
+  font-family: 'Cormorant Garamond ExtraBold 800', serif;
   font-size: 30px;
 }
 
 body p {
   color: black;
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 body a {
@@ -838,7 +838,7 @@ body a:hover {
 }
 
 .btn-success {
-  font-family: 'Nanum Myeongjo Bold 700', serif;
+  font-family: 'Cormorant Garamond Bold 700', serif;
   padding: 5px 50px 5px 50px;
   background-color: white;
   color: black;
@@ -852,13 +852,13 @@ body a:hover {
 }
 
 .form-check-label {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 15px;
   color: gray;
 }
 
 .form-group {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 5px;
 }
 
@@ -888,14 +888,14 @@ body a:hover {
 }
 
 .login-box h1, .signup-box h1 {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 800;
   font-size: 30px;
 }
 
 body p {
   color: black;
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 body a {
@@ -912,7 +912,7 @@ body a:hover {
 }
 
 .btn-success {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
   padding: 5px 50px 5px 50px;
   background-color: white;
@@ -927,21 +927,26 @@ body a:hover {
 }
 
 .form-check-label {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 15px;
   color: gray;
 }
 
 .form-group {
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 5px;
 }
 
 .poemwrite h1 {
-    color: #A2AFF6;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 800;
     font-size: 50px;
+}
+.haiku_heading {
+  color: #A2AFF6;
+}
+.sonnet_heading {
+  color: black;
 }
 
 .word-box {
@@ -950,7 +955,7 @@ body a:hover {
     width: 1000px;
     height: 50px;
     border-radius: 5px;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
 }
 @media (max-width: 1000px) {
@@ -967,14 +972,14 @@ body a:hover {
 .btn-primary {
     background-color: #A2AFF6;
     border-color: darkgray;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
 }
 
 .btn-primary:hover {
     background-color: #909BD8;
     border-color: darkgray;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
 }
 
@@ -984,4 +989,16 @@ body {
 
 .bigmargin {
   margin-top: 100px;
+}
+
+.form-label {
+    border-color: darkgray;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+}
+
+.theme-box {
+    border-color: darkgray;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
 }
