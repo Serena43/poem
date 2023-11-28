@@ -952,7 +952,7 @@ body a:hover {
 .word-box {
     border:1px solid darkgray;
     color: black;
-    width: 1000px;
+    width: 700px;
     height: 50px;
     border-radius: 5px;
     font-family: 'Cormorant Garamond', serif;
@@ -1001,4 +1001,16 @@ body {
     border-color: darkgray;
     font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
+}
+
+.mt-end {
+  margin-top: 450px;
+}
+
+.ms-input {
+  margin-left: 55px;
+}
+
+.info-icon {
+  font-size: 20px;
 }

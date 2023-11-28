@@ -36,6 +36,7 @@
               <li><a href="{{url_for('poem_writing_sonnet')}}">Sonnet</a></li>
             </ul>
           </li>
+          <li><a class="nav-link scrollto" href="#about">Board</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           {% if isLogin %}
             <li><a class="nav-link scrollto" href="{{url_for('logout')}}">Logout</a></li>
@@ -67,7 +68,7 @@
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>
             {% with messages = get_flashed_messages() %}
                 {% if messages%}
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger mt-3" role="alert">
                         Wrong poem!
                     </div>
                 {% endif %}
