@@ -1014,3 +1014,21 @@ body {
 .info-icon {
   font-size: 20px;
 }
+
+.modal {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+}
+
+.close-modal {
+  font-size: 30px;
+}
+
+.mt-info-box {
+  margin-top: 200px;
+}
