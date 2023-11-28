@@ -156,7 +156,7 @@ def poem_writing_acrostic():
 			conn.commit() #saving DB
 			conn.close()
 
-			return render_template(url_for('index'))
+			return redirect(url_for('index'))
 		else:
 			flash("Not quite!")
 			return render_template('poem_writing_acrostic.html')

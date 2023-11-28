@@ -36,6 +36,7 @@
               <li><a href="{{url_for('poem_writing_sonnet')}}">Sonnet</a></li>
             </ul>
           </li>
+          <li><a class="nav-link scrollto" href="#about">Board</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           {% if isLogin %}
             <li><a class="nav-link scrollto" href="{{url_for('logout')}}">Logout</a></li>
@@ -51,14 +52,20 @@
   </header>
 
     <div class="container poemwrite">
-        <h1 class="mb-4 bigmargin text-center haiku_heading">Haiku</h1>
+        <div class="d-flex justify-content-center mb-3 bigmargin"> <!-- d-flex: align elements inside div -->
+            <h1 class="haiku_heading text-center me-3 ms-4">Haiku</h1>
+        <a class="info-icon mt-3" data-bs-toggle="modal" data-bs-target="#haiku_instruction"> <i class="bi bi-patch-question"></i> </a>
+        </div>
+        
         <div> <!-- x physically shown-->
             <form action="/poem_writing_haiku" method = "POST">
-                <div class="wordbox-container">
-                    <input class="word-box me-3" name="line" placeholder="Enter a line"> <!-- box for user input-->
-            </div>
-                <button id="add-btn" class="btn btn-primary mt-3"><i class="bi bi-patch-plus"></i></button>
-                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                <div class="wordbox-container d-flex justify-content-center">
+                    <input class="word-box me-3 text-center ms-input" name="line" placeholder="Enter a line"> <!-- box for user input-->
+                    <button id="add-btn" class="btn btn-primary"><i class="bi bi-patch-plus"></i></button>
+                </div>
+                <div class="d-flex justify-content-end mt-end"">
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </div>
             {% with messages = get_flashed_messages() %}
                 {% if messages%}
                     <!-- <div id="alert-message" class="alert alert-danger" role="alert"> -->
@@ -70,6 +77,26 @@
 
         </div>
     </div>
+
+    <!-- Modal (popup window) -->
+<div class="modal fade" id="haiku_instruction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Haiku Rules</h5>
+            <a data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul>
+            <li>The poem consists of three lines.</li>
+            <li>The first line is 5 syllables.</li>
+            <li>The second line is 7 syllables.</li>
+            <li>The third line is 5 syllables.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script>
