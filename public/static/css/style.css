@@ -943,7 +943,7 @@ body a:hover {
     font-size: 50px;
 }
 .haiku_heading {
-  color: #A2AFF6;
+  color: #FFF;
 }
 .sonnet_heading {
   color: black;
@@ -973,14 +973,17 @@ body a:hover {
     background-color: #A2AFF6;
     border-color: darkgray;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .btn-primary:hover {
-    background-color: #909BD8;
+    background-color: #8F9CE1;
     border-color: darkgray;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+}
+
+.btn-primary:focus {
+    background-color: #8F9CE1 !important;
+    border-color: darkgray !important;
 }
 
 body {
@@ -1013,6 +1016,11 @@ body {
 
 .info-icon {
   font-size: 20px;
+  color: #FFF;
+}
+
+.info-icon:hover {
+  color: gray;
 }
 
 .modal {
@@ -1031,4 +1039,48 @@ body {
 
 .mt-info-box {
   margin-top: 200px;
+}
+
+.haikuback {
+  background-image: url("../img/haiku.jpg");
+  background-size: cover;
+}
+
+.sonnetback {
+  background-image: url("../img/sonnet.jpg");
+  background-size: cover;
+}
+
+.board-top {
+  margin-top: 120px;
+}
+
+.board-poemtype {
+  color: darkgray;
+  font-size: 15px;
+}
+
+.poem-filter {
+  list-style: none; /*  removing bullet pt  */
+  margin-left: -13px;
+}
+
+.board-top h4 {
+  margin-top: 3.5px;
+}
+
+.poem-filter li {
+  cursor: pointer;
+  font-size: 13px;
+  display: inline-block;
+  border: 1px solid black;
+  padding: 7px 12px 7px 12px; /* top right bottom left */
+  border-radius: 11px;
+  margin-right: 5px;
+}
+
+.poem-filter li:hover {
+  background: #A2AFF6;
+  color: white;
+  border: 1px solid darkgray;
 }

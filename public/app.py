@@ -164,6 +164,13 @@ def poem_writing_acrostic():
 	else: #get
 		return render_template('poem_writing_acrostic.html')
 
+@app.route("/board", methods=['GET','POST'])
+def board():
+	if request.method == "POST":
+		pass
+	else:
+		return render_template('board.html')
+
 # Main function (Python syntax)
 if __name__ == '__main__':
 	app.run(debug=True)
