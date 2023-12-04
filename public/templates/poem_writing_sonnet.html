@@ -30,10 +30,11 @@
             <ul>
               <li><a href="{{url_for('poem_writing_acrostic')}}">Acrostic</a></li>
               <li><a href="#">Free Verse</a></li>
-              <li><a href="{{url_for('poem_writing_haiku')}}">Haiku</a></li>
-              <li><a href="#">Sonnet</a></li>
+              <li><a href="#">Haiku</a></li>
+              <li><a href="{{url_for('poem_writing_sonnet')}}">Sonnet</a></li>
             </ul>
           </li>
+          <li><a class="nav-link scrollto" href="#about">Board</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           {% if isLogin %}
             <li><a class="nav-link scrollto" href="{{url_for('logout')}}">Logout</a></li>
@@ -51,12 +52,14 @@
     <div class="container poemwrite">
         <h1 class="mb-4 bigmargin text-center sonnet_heading">Sonnet</h1>
         <div> <!-- x physically shown-->
-            <form action="/poem_writing" method = "POST">
-                <div class="wordbox-container">
-                    <input class="word-box me-3" name="line" placeholder="Enter a line"> <!-- box for user input-->
-            </div>
-                <button id="add-btn" class="btn btn-primary mt-3"><i class="bi bi-patch-plus"></i></button>
-                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <form action="/poem_writing_sonnet" method = "POST">
+                <div class="wordbox-container d-flex justify-content-center">
+                    <input class="word-box me-3 text-center ms-input" name="line" placeholder="Enter a line"> <!-- box for user input-->
+                    <button id="add-btn" class="btn btn-primary"><i class="bi bi-patch-plus"></i></button>
+                </div>
+                <div class="d-flex justify-content-end mt-end">
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </div>
             {% with messages = get_flashed_messages() %}
                 {% if messages%}
                     <div class="alert alert-danger" role="alert">
@@ -68,6 +71,39 @@
 
         </div>
     </div>
+
+    <!-- Modal (popup window) -->
+<div class="modal fade mt-info-box" id="sonnet_instruction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center ms-2">
+        <h5 class="modal-title mx-auto" id="exampleModalLongTitle">Sonnet Rules</h5>
+            <a class="close-modal" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></a>
+      </div>
+      <div class="modal-body">
+        <ul>
+            <li>Level 1</li>
+                <ul>
+                    <li>The poem consists of 14 lines.<span class="extra-info">* “stretched sonnets” have 15 and 16 lines.</span></li>
+                    <li>The poem touches on a big idea, feeling, or issue (eg. love, heartbreak, problem).</li>
+                </ul>
+            <li>Level 2</li>
+                <ul>
+                    <li>The poem has a turn, or “volta”, a shift in tone or thought.</li>
+                    <li>The poem has the rhyme scheme: ABAB CDCD EFEF GG.</li>
+                    <li>There are 10 syllables in each line.</li>
+                </ul>
+            <li>Level 3</li>
+                <ul>
+                    <li>The poem uses iambic pentameter in some or all of its 14 lines.</li>
+                    <li>The final couplet resolves the issue or problem in the sonnet.</li>
+                </ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script>

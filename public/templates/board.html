@@ -80,7 +80,7 @@
   					</div>
   				</div>
 
-  				<div class="row poem-container">
+  				<div class="row poem-container mt-3">
 
   					<div class="col-md-3 poem-item filter-haiku">
   						<div class="card mx-auto" style="width: 18rem;">
@@ -132,20 +132,21 @@
 	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
 	<script>
-		const select = (el, all = false) => {
-			el = el.trim() //python strip (removing unnecessary space)
-			if all {
-				return [...document.querySelectorAll(el)]
-			} else{
-				return document.querySelector(el)
-			}
+		// bringing class elements from html (poem-container or list items)
+		const select = (el, all=false) => {
+		  el = el.trim()
+		  if (all) {
+		    return [...document.querySelectorAll(el)]
+		  } else {
+		    return document.querySelector(el)
+		  }
 		}
 
 		const on = (type, el, listener, all=false) => {
 			selectEl = select(el, all)
 			if (selectEl) {
 				if (all) {
-					selectEl.forEach(e => e.addEventListner(type, listener))
+					selectEl.forEach(e => e.addEventListener(type, listener))
 				} else{
 					selectEl.addEventListener(type, listener)
 				}
@@ -167,9 +168,10 @@
 						el.classList.remove('filter-active');
 					});
 				this.classList.add('filter-active');
+				//this => clicked filter
 
-				poemIsotope.arranged({
-					filter: this.getAttribute('data-filter');
+				poemIsotope.arrange({
+					filter: this.getAttribute('data-filter')
 				});
 
 				}, true);

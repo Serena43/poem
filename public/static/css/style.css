@@ -946,7 +946,10 @@ body a:hover {
   color: #FFF;
 }
 .sonnet_heading {
-  color: black;
+  color: #FFF;
+}
+.acrostic_heading {
+  color: #FFF;
 }
 
 .word-box {
@@ -1051,6 +1054,11 @@ body {
   background-size: cover;
 }
 
+.acrosticback {
+  background-image: url("../img/acrostic.jpg");
+  background-size: cover;
+}
+
 .board-top {
   margin-top: 120px;
 }
@@ -1083,4 +1091,8 @@ body {
   background: #A2AFF6;
   color: white;
   border: 1px solid darkgray;
+}
+
+.theme {
+  color: #FFF;
 }
