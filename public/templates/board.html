@@ -49,7 +49,7 @@
 		              <li><a href="{{url_for('poem_writing_sonnet')}}">Sonnet</a></li>
 		            </ul>
 		          </li>
-		          <li><a class="nav-link scrollto" href="#about">Board</a></li>
+		          <li><a class="nav-link scrollto" href="{{url_for('board')}}">Board</a></li>
 		          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
 		          {% if isLogin %}
 		            <li><a class="nav-link scrollto" href="{{url_for('logout')}}">Logout</a></li>
@@ -72,59 +72,31 @@
   						<h4>Filter |</h4>
   						<ul class="poem-filter">
   							<li data-filter = "*">All</li>
-  							<li data-filter = ".filter-acrostic">Acrostic</li>
-  							<li data-filter = ".filter-free-verse">Free Verse</li>
-  							<li data-filter = ".filter-haiku">Haiku</li>
-  							<li data-filter = ".filter-sonnet">Sonnet</li>
+  							<li data-filter = ".filter-Acrostic">Acrostic</li>
+  							<li data-filter = ".filter-Free-Verse">Free Verse</li>
+  							<li data-filter = ".filter-Haiku">Haiku</li>
+  							<li data-filter = ".filter-Sonnet">Sonnet</li>
   						</ul>
   					</div>
   				</div>
 
   				<div class="row poem-container mt-3">
-
-  					<div class="col-md-3 poem-item filter-haiku">
-  						<div class="card mx-auto" style="width: 18rem;">
+  					{% for i in range(num_poems) %}
+  						{% if i < 4 %}
+  							<div class="col-md-6 col-lg-3 poem-item filter-{{types[i]}}">
+  						{% else %}
+  							<div class="col-md-6 col-lg-3 poem-item filter-{{types[i]}} mt-4">
+  						{% endif %}
+  						<div class="card poem-card mx-auto" style="width: 18rem;">
 							<div class="card-body">
-							    <h5 class="card-title">Poem Title <span class="board-poemtype ms-1">Poem Type</span></h5>
-							    <h6 class="card-subtitle mb-2 text-muted">Username - MM/DD/YY</h6>
-							    <p class="card-text">Poem Content</p>
+							    <h5 class="card-title">{{titles[i]}} <span class="board-poemtype ms-1">{{types[i]}}</span></h5>
+							    <h6 class="card-subtitle mb-2 text-muted">{{usernames[i]}} - {{dates[i][0:10]}}</h6>
+							    <p class="card-text">{{contents[i][0:35]}}</p>
 							    <a href="#" class="card-link">View more</a>
 							</div>
 						</div>
   					</div>  
-
-  					<div class="col-md-3 poem-item filter-haiku">
-  						<div class="card mx-auto" style="width: 18rem;">
-							<div class="card-body">
-							    <h5 class="card-title">Poem Title <span class="board-poemtype ms-1">Poem Type</span></h5>
-							    <h6 class="card-subtitle mb-2 text-muted">Username - MM/DD/YY</h6>
-							    <p class="card-text">Poem Content</p>
-							    <a href="#" class="card-link">View more</a>
-							</div>
-						</div>
-  					</div>
-
-  					<div class="col-md-3 poem-item filter-acrostic">
-  						<div class="card mx-auto" style="width: 18rem;">
-						   <div class="card-body">
-								<h5 class="card-title">Poem Title <span class="board-poemtype ms-1">Poem Type</span></h5>
-							    <h6 class="card-subtitle mb-2 text-muted">Username - MM/DD/YY</h6>
-							    <p class="card-text">Poem Content</p>
-							    <a href="#" class="card-link">View more</a>
-						  </div>
-					  </div>
-					</div>
-
-					<div class="col-md-3 poem-item filter-sonnet">
-  						<div class="card mx-auto" style="width: 18rem;">
-						  <div class="card-body">
-								<h5 class="card-title">Poem Title <span class="board-poemtype ms-1">Poem Type</span></h5>
-							    <h6 class="card-subtitle mb-2 text-muted">Username - MM/DD/YY</h6>
-							    <p class="card-text">Poem Content</p>
-							    <a href="#" class="card-link">View more</a>
-						  </div>
-						</div>
-  					</div>
+  					{% endfor %}
   				</div>
   			</div>
   		</main>
@@ -161,7 +133,7 @@
 					itemSelector: '.poem-item',
 					layoutMode: 'fitRows'
 				});
-				poemFilters = select('.poem-filters li', true);
+				poemFilters = select('.poem-filter li', true);
 				on('click', '.poem-filter li', function(e) {
 					e.preventDefault();
 					poemFilters.forEach(function(el){

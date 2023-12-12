@@ -569,6 +569,16 @@ section {
   margin-left: 60px;
 }
 
+.aboutimg {
+  width: 80%;
+  height: 50%;
+  border-radius: 10px;
+}
+
+.about p {
+  text-align: justify;
+}
+
 /*--------------------------------------------------------------
 # Steps
 --------------------------------------------------------------*/
@@ -616,85 +626,42 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Testimonials
+# Features
 --------------------------------------------------------------*/
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
+#features {
+  margin-top:-400px;
+}
+
+.feature-box {
+  pcursor: pointer;
+  background: lightskyblue;
+  position: relative;
   overflow: hidden;
-}
-
-.testimonials .testimonial-item {
-  box-sizing: content-box;
-  min-height: 320px;
-}
-
-.testimonials .testimonial-item .testimonial-img {
-  width: 90px;
-  border-radius: 50%;
-  margin: -40px 0 0 40px;
-  position: relative;
-  z-index: 2;
-  border: 6px solid #fff;
-}
-
-.testimonials .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0 5px 45px;
-  color: #111;
-}
-
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: #999;
-  margin: 0 0 0 45px;
-}
-
-.testimonials .testimonial-item .quote-icon-left,
-.testimonials .testimonial-item .quote-icon-right {
-  color: #a8d3cc;
-  font-size: 26px;
-}
-
-.testimonials .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
-}
-
-.testimonials .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
-}
-
-.testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 15px 0 15px;
-  padding: 20px 20px 60px 20px;
-  background: #eff7f6;
-  position: relative;
-  border-radius: 6px;
-  position: relative;
+  padding: 30px;
+  border-radius: 10px;
   z-index: 1;
 }
 
-.testimonials .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
+.feature-box::before {
+  content: "";
+  position: absolute;
+  background: lightcoral;
+  right: -60px;
+  top: -40px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  z-index: -1;
+  transition: all 0.3s;
 }
 
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #1bac91;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #1bac91;
+.feature-box:hover::before {
+  background: lightcoral;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1007,6 +974,8 @@ body {
     border-color: darkgray;
     font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
 }
 
 .mt-end {
@@ -1040,8 +1009,12 @@ body {
   font-size: 30px;
 }
 
-.mt-info-box {
+.mt-haiku-info {
   margin-top: 200px;
+}
+
+.mt-sonnet-info {
+  margin-top: 130px;
 }
 
 .haikuback {
@@ -1095,4 +1068,14 @@ body {
 
 .theme {
   color: #FFF;
+}
+
+.poem-card:hover {
+  scale: 1.03;
+}
+
+.filter-active {
+  background-color: #A2AFF6;
+  color: #FFF;
+  border: 1px solid darkgray !important;
 }

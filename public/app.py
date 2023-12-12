@@ -169,7 +169,25 @@ def board():
 	if request.method == "POST":
 		pass
 	else:
-		return render_template('board.html')
+		conn = sqlite3.connect("static/database.db")
+		cursor = conn.cursor()
+		cursor.execute("Select * from Poem") # execute => 명령 to db; * => bring all (rows & columns)
+		rows = cursor.fetchall() # [row1, row2, row3, row4, ...] where row1 = ("serena", "poem...", "2023-12-05", "title", "type")
+		
+		usernames = []
+		contents = []
+		dates = []
+		titles = []
+		types = []
+
+		for row in rows:
+			usernames.append(row[0])
+			contents.append(row[1])
+			dates.append(row[2])
+			titles.append(row[3])
+			types.append(row[4].title())
+
+		return render_template('board.html', usernames = usernames, contents = contents, dates = dates, titles = titles, types = types, num_poems = len(usernames))
 
 # Main function (Python syntax)
 if __name__ == '__main__':

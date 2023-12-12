@@ -32,11 +32,11 @@
             <ul>
               <li><a href="{{url_for('poem_writing_acrostic')}}">Acrostic</a></li>
               <li><a href="#">Free Verse</a></li>
-              <li><a href="#">Haiku</a></li>
+              <li><a href="{{url_for('poem_writing_haiku')}}">Haiku</a></li>
               <li><a href="{{url_for('poem_writing_sonnet')}}">Sonnet</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#about">Board</a></li>
+          <li><a class="nav-link scrollto" href="{{url_for('board')}}">Board</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           {% if isLogin %}
             <li><a class="nav-link scrollto" href="{{url_for('logout')}}">Logout</a></li>
@@ -54,7 +54,7 @@
     <div class="container poemwrite">
         <div class="d-flex justify-content-center mb-3 bigmargin"> <!-- d-flex: align elements inside div -->
             <h1 class="haiku_heading text-center me-3 ms-4">Haiku</h1>
-        <a class="info-icon mt-3" data-bs-toggle="modal" data-bs-target="#haiku_instruction"> <i class="bi bi-patch-question"></i> </a>
+            <a class="info-icon mt-3" data-bs-toggle="modal" data-bs-target="#haiku_instruction"> <i class="bi bi-patch-question"></i> </a>
         </div>
         
         <div> <!-- x physically shown-->
@@ -79,7 +79,7 @@
     </div>
 
     <!-- Modal (popup window) -->
-<div class="modal fade mt-info-box" id="haiku_instruction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade mt-haiku-info" id="haiku_instruction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center ms-2">
