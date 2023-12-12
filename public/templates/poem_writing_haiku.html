@@ -60,8 +60,10 @@
         <div> <!-- x physically shown-->
             <form action="/poem_writing_haiku" method = "POST">
                 <div class="wordbox-container d-flex justify-content-center">
-                    <input class="word-box me-3 text-center ms-input" name="line" placeholder="Enter a line"> <!-- box for user input-->
-                    <button id="add-btn" class="btn btn-primary"><i class="bi bi-patch-plus"></i></button>
+                    <div class="input-wrapper d-flex align-items-center">
+                        <input class="word-box me-3 text-center ms-input" name="line" placeholder="Enter a line"> <!-- box for user input-->
+                        <button type="button" class="btn btn-primary add-btn"><i class="bi bi-patch-plus"></i></button>
+                    </div>
                 </div>
                 <div class="d-flex justify-content-end mt-end"">
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
@@ -105,23 +107,42 @@
 
     // ByClassName: ["wordbox-container", "wordbox-container"] (list)
     var word_container = document.getElementsByClassName("wordbox-container")[0];
-    <!--    storing word-box in line 15 in var wordbox-->
-    var addbtn = document.getElementById("add-btn");
+    // storing word-box in line 15 in var wordbox
+
     // var alert = document.getElementById("alert-message");
 
-    addbtn.addEventListener("click", function() {
+    document.addEventListener("click", function() {
         event.preventDefault(); //preventing from calling python code
+        var clickedElement = event.target;
         // alert.style.display = "none";
-        if (box_current < box_limit) {
-            var newBox = document.createElement("input"); <!--creating input tag-->
-            newBox.setAttribute('placeholder',"Enter a line")
-            newBox.setAttribute('name','line')
-            newBox.classList.add("word-box", "mt-3"); <!--adding class-->
-            word_container.appendChild(newBox) <!--appending to word_container-->
-            box_current += 1;
+        if ((clickedElement.classList.contains('bt-patch-plus') || clickedElement.classList.contains('add-btn')) && box_current < box_limit) {
+            var newInputWrapper = document.createElement('div');
+            newInputWrapper.classList.add('input-wrapper', 'd-flex', 'align-item-center', 'mt-3');
+            var newBox = document.createElement('input');
+            newBox.setAttribute('placeholder', 'Enter a line');
+            newBox.classList.add('word-box', 'me-3', 'text-center', 'ms-input');
+
+            var newButton = document.createElement('button');
+            newButton.classList.add('btn', 'btn-primary', 'text-center', 'add-btn');
+            newButton.innerHTML = '<i class="bi bi-patch-plus"></i>';
+
+            newInputWrapper.append(newBox);
+            newInputWrapper.append(newButton);
+
+            word_container.append(newInputWrapper);
+
+            if (clickedElement.classList.contains('add-btn')) {
+                clickedElement.style.visibility = 'hidden';
+            } else if (clickedElement.classList.contains('bi-patch-plus')){
+                var parentDiv = clickedElement.closest('.input-wrapper')
+                var addBtn = parentDiv.querySelector('.add-btn');
+                addBtn.style.visibility = 'hidden';
+            }
+
+        box_current += 1
         }
     });
-    <!--executed (do something) when clicked-->
+    // executed (do something) when clicked
 </script>
 
 </body>
